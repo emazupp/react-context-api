@@ -1,19 +1,9 @@
 import Card from "../components/Card";
-import { useEffect, useState } from "react";
+import { usePostContext } from "../contexts/PostContext";
 
 export default function PostListPage() {
-  const [posts, setPosts] = useState();
-
-  useEffect(() => {
-    fetch("http://localhost:3000/posts")
-      .then((res) => res.json())
-      .then((data) => fetchPosts(data));
-  }, []);
-
-  const fetchPosts = (posts) => {
-    setPosts(posts);
-  };
-
+  const { posts } = usePostContext();
+  console.log(posts);
   return (
     <main>
       <div className="container">
