@@ -1,5 +1,6 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 
+// * CREAZIONE CONTESTO
 const PostContext = createContext();
 
 // * CONSUMER
@@ -7,23 +8,24 @@ export const usePostContext = () => useContext(PostContext);
 
 // * PROVIDER
 export const PostProvider = ({ children }) => {
-  const [posts, setPosts] = useState();
-
-  const globalData = {
-    posts: ["ciao"],
-  };
-
-  /* useEffect(() => {
-    fetch("http://localhost:3000/posts")
-      .then((res) => res.json())
-      .then((data) => fetchPosts(data));
+  useEffect(() => {
+    fetchPosts();
   }, []);
 
-  const fetchPosts = (posts) => {
-    setPosts(posts);
-  }; */
+  const fetchPosts = () => {
+    fetch("http://localhost:3000/posts")
+      .then((res) => res.json())
+      .then((posts) => {
+        const newPosts = { ...postsData, posts };
+        setPostsData(newPosts);
+      });
+  };
+
+  const [postsData, setPostsData] = useState({
+    posts: [],
+  });
 
   return (
-    <PostContext.Provider value={globalData}>{children}</PostContext.Provider>
+    <PostContext.Provider value={postsData}>{children}</PostContext.Provider>
   );
 };
