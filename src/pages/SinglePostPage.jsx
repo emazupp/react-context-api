@@ -7,23 +7,14 @@ export default function SinglePostPage() {
   const [post, setPost] = useState(undefined);
 
   useEffect(() => {
-    fetchSinglePost;
+    fetchSinglePost();
   }, []);
 
-  const fetchSinglePost = (data) => {
+  const fetchSinglePost = () => {
     fetch(`http://localhost:3000/posts/${id}`)
       .then((res) => res.json())
       .then((data) => setPost(data));
   };
-
-  const handleDelete = (id) => {
-    fetch(`http://localhost:3000/posts/${id}`, { method: "DELETE" })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-    navigate(-1);
-  };
-
-  const navigate = useNavigate();
 
   return (
     <main>
@@ -77,13 +68,7 @@ export default function SinglePostPage() {
           )}
         </div>
       </div>
-      {post && (
-        <DeleteModal
-          id={post.id}
-          title={post.title}
-          handleDelete={handleDelete}
-        />
-      )}
+      {post && <DeleteModal id={post.id} title={post.title} />}
     </main>
   );
 }

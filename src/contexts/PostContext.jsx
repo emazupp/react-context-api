@@ -21,8 +21,18 @@ export const PostProvider = ({ children }) => {
       });
   };
 
+  const fetchDeletePost = (id) => {
+    fetch(`http://localhost:3000/posts/${id}`, { method: "DELETE" })
+      .then((res) => res.json())
+      .then((data) => {
+        fetchPosts();
+        console.log(data);
+      });
+  };
+
   const [postsData, setPostsData] = useState({
     posts: [],
+    deletePost: fetchDeletePost,
   });
 
   return (

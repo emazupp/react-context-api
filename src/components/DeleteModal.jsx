@@ -1,4 +1,9 @@
-export default function DeleteModal({ id, title, handleDelete }) {
+import { useNavigate } from "react-router-dom";
+import { usePostContext } from "../contexts/PostContext";
+
+export default function DeleteModal({ id, title }) {
+  const { deletePost } = usePostContext();
+  const navigate = useNavigate();
   return (
     <>
       <div
@@ -32,7 +37,8 @@ export default function DeleteModal({ id, title, handleDelete }) {
               </button>
               <button
                 onClick={() => {
-                  handleDelete(id);
+                  deletePost(id);
+                  navigate(-1);
                 }}
                 type="button"
                 className="btn btn-danger"
