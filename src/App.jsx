@@ -5,7 +5,7 @@ import { PostProvider } from "./contexts/PostContext";
 
 // pages
 import AboutUsPage from "./pages/AboutusPage";
-import PostListPage from "./pages/PostListPage";
+import PostPage from "./pages/PostPage";
 import HomePage from "./pages/HomePage";
 import SinglePostPage from "./pages/SinglePostPage";
 
@@ -20,7 +20,7 @@ function App() {
           <Route element={<DefaultLayout />}>
             <Route path="/" Component={HomePage} />
             <Route path="/aboutus" Component={AboutUsPage} />
-            <Route path="/posts" Component={PostListPage} />
+            <Route path="/posts" Component={PostPage} />
             <Route path="/posts/:id" Component={SinglePostPage} />
           </Route>
         </Routes>

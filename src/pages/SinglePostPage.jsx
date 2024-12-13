@@ -7,13 +7,13 @@ export default function SinglePostPage() {
   const [post, setPost] = useState(undefined);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/posts/${id}`)
-      .then((res) => res.json())
-      .then((data) => fetchSinglePost(data));
+    fetchSinglePost;
   }, []);
 
   const fetchSinglePost = (data) => {
-    setPost(data);
+    fetch(`http://localhost:3000/posts/${id}`)
+      .then((res) => res.json())
+      .then((data) => setPost(data));
   };
 
   const handleDelete = (id) => {

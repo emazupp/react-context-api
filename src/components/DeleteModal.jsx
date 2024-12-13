@@ -4,7 +4,7 @@ export default function DeleteModal({ id, title, handleDelete }) {
       <div
         className="modal fade"
         id="delete-modal"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="delete-modal-lable"
         aria-hidden="true"
       >

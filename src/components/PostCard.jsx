@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export default function Card({ id, title, image, author }) {
+export default function PostCard({ id, title, image, author }) {
   const navigate = useNavigate();
   return (
     <div className="col-3">
