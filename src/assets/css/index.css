@@ -1,0 +1,75 @@
+.wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  height: 60px;
+  padding: 20px;
+}
+
+main {
+  flex: 1;
+}
+
+/* card */
+
+.card {
+  cursor: pointer;
+}
+
+/* single card page */
+
+.single-card-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.backArrow-button,
+.delete-button {
+  background-color: transparent;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.backArrow-button {
+  border: 1px solid blueviolet;
+  color: blueviolet;
+}
+
+.delete-button {
+  border: 1px solid red;
+  color: red;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.single-card-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.single-title-card {
+  cursor: auto;
+}
+
+div.card-text > span {
+  background-color: blueviolet;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+/* navbar */
+
+.navbar-brand {
+  color: blueviolet !important;
+}
+
+.nav-link.active {
+  color: blueviolet !important;
+}
